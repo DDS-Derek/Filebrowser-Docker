@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+umask ${UMASK}
+
+exec s6-setuidgid ${PUID}:${PGID} filebrowser -c /config/settings.json -d /config/db/filebrowser.db;

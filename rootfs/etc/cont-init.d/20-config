@@ -1,0 +1,21 @@
+#!/usr/bin/with-contenv bash
+
+if [ ! -d "/config" ]; then
+  mkdir /config
+fi
+if [ ! -d "/config/db" ]; then
+  mkdir /config/db
+fi
+if [ ! -f "/config/settings.json" ]; then
+  cp -a /defaults/settings.json /config/settings.json
+fi
+if [ ! -f "/config/db/filebrowser.db" ]; then
+  touch /config/db/filebrowser.db
+fi
+
+chown ${PUID}:${PGID} \
+	/config \
+	/config/db \
+	/config/settings.json \
+	/config/db/filebrowser.db \
+	/data
