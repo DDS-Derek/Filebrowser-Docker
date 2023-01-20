@@ -21,7 +21,7 @@ RUN apk add --no-cache \
 COPY --from=Get --chmod=755 /filebrowser /usr/bin/filebrowser
 COPY --chmod=755 rootfs/ /
 
-VOLUME /data /config
+VOLUME /config
 EXPOSE 80
 
 ENTRYPOINT [ "/init" ]
